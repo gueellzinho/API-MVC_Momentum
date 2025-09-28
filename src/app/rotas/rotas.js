@@ -16,6 +16,11 @@ module.exports = (aplicacao) =>{
 
     /**************ENDPOINTS****************/
 
+    aplicacao.get("/", (req, res) =>{
+        res.send("API Momentum está rodando!");
+    });
+
+
     //GET - Busca Done por ID_Usuario
     aplicacao.get("/done/:id", obj_DoneController.buscaDonePorIDUsuario());
 
