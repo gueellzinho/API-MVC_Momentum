@@ -14,6 +14,17 @@ class UsuarioController{
         }
     }
 
+    buscaIdPorEmail(){
+        return function(req, res){
+            const usuarioCRUD = new UsuarioCRUD(db);
+            usuarioCRUD.buscaIdPorEmail(req.body.email)
+            .then((resultados) =>{
+                res.status(200).send(resultados)
+            })
+            .catch(erro => res.status(400).send(erro.message))
+        }
+    }
+
     registraUsuario(){
         return function(req, res){
             const usuarioCRUD = new UsuarioCRUD(db);

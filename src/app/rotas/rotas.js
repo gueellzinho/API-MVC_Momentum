@@ -72,6 +72,9 @@ module.exports = (aplicacao) =>{
     //GET - Busca Usuario por ID_Usuario
     aplicacao.get("/usuario/:id", obj_UsuarioController.buscaUsuarioPorId());
 
+    //GEt - Busca ID_Usuario por email
+    aplicacao.get("/usuario/buscaId", obj_UsuarioController.buscaIdPorEmail());
+
     //POST - Registro de Usuario
     aplicacao.post("/usuario/registro", obj_UsuarioController.registraUsuario());
     
@@ -83,4 +86,9 @@ module.exports = (aplicacao) =>{
 
     //DELETE - Remoção de Usuario
     aplicacao.delete("/usuario/:id", obj_UsuarioController.deletaUsuario());
+
+
+
+
+
 }

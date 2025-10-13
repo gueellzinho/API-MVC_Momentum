@@ -18,6 +18,19 @@ class UsuarioCRUD{
        });
     }
 
+    buscaIdPorEmail(email){
+        return new Promise((resolve, reject) =>{
+            var sqlQuery = `select ID_Usuario from Momentum.Usuario where Email = '${email}'`;
+            this._db.query(sqlQuery, (erro, recordset) =>{
+                if(erro){
+                    console.log(erro);
+                    return reject("BUSCA DE ID FALHOU!");
+                }
+                return resolve(recordset);
+            });
+        })
+    }
+
     async registraUsuario(usuario){
         return new Promise(async (resolve, reject) =>{
             try{
