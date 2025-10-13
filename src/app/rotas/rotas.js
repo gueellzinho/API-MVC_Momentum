@@ -73,7 +73,7 @@ module.exports = (aplicacao) =>{
     aplicacao.get("/usuario/:id", obj_UsuarioController.buscaUsuarioPorId());
 
     //GEt - Busca ID_Usuario por email
-    aplicacao.get("/usuario/buscaId", obj_UsuarioController.buscaIdPorEmail());
+    aplicacao.get("/usuario/:email", obj_UsuarioController.buscaIdPorEmail());
 
     //POST - Registro de Usuario
     aplicacao.post("/usuario/registro", obj_UsuarioController.registraUsuario());

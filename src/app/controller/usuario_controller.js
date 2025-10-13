@@ -17,7 +17,7 @@ class UsuarioController{
     buscaIdPorEmail(){
         return function(req, res){
             const usuarioCRUD = new UsuarioCRUD(db);
-            usuarioCRUD.buscaIdPorEmail(req.body.email)
+            usuarioCRUD.buscaIdPorEmail(req.params.email)
             .then((resultados) =>{
                 res.status(200).send(resultados)
             })
