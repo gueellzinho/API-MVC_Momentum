@@ -10,7 +10,7 @@ class UnDoneController{
             .then((resultados) =>{
                 res.status(200).send(resultados)
             })
-            .catch(erro => res.status(400).send(erro.message));
+            .catch(erro => res.status(400).json({ message: erro.message }));
         }
     }
 
@@ -18,8 +18,8 @@ class UnDoneController{
         return function(req, res){
             const unDoneCRUD = new UnDoneCRUD(db);
             unDoneCRUD.insereUnDone(req.body)
-            .then(() => res.status(200).send("INSERÇÃO BEM-SUCEDIDA"))
-            .catch(erro => res.status(400).send(erro.message));
+            .then(() => res.status(200).json({ message: "LOGIN BEM-SUCEDIDO" }))
+            .catch(erro => res.status(400).json({ message: erro.message }));
         }
     }
 
@@ -27,8 +27,8 @@ class UnDoneController{
         return function(req, res){
             const unDoneCRUD = new UnDoneCRUD(db);
             unDoneCRUD.atualizaUnDone(req.body)
-            .then(() => res.status(200).send("ATUALIZAÇÃO BEM-SUCEDIDA"))
-            .catch(erro => res.status(400).send(erro.message));
+            .then(() => res.status(200).json({ message: "LOGIN BEM-SUCEDIDO" }))
+            .catch(erro => res.status(400).json({ message: erro.message }));
         }
     }
 
@@ -37,8 +37,8 @@ class UnDoneController{
             const id = req.params.id;
             const unDoneCRUD = new UnDoneCRUD(db);
             unDoneCRUD.deletaUnDone(id)
-            .then(() => res.status(200).send("REMOÇÃO BEM-SUCEDIDA"))
-            .catch(erro => res.status(400).send(erro.message));
+            .then(() => res.status(200).json({ message: "LOGIN BEM-SUCEDIDO" }))
+            .catch(erro => res.status(400).json({ message: erro.message }));
         }
     }
 }

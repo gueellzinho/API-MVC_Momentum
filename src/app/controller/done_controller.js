@@ -10,7 +10,7 @@ class DoneController{
             .then((resultados) =>{
                 res.status(200).send(resultados)
             })
-            .catch(erro => res.status(400).send(erro.message));
+            .catch(erro => res.status(400).json({ message: erro.message }));
         }
     }
 
@@ -18,8 +18,8 @@ class DoneController{
         return function(req, res){
             const doneCRUD = new DoneCRUD(db);
             doneCRUD.insereDone(req.body)
-            .then(() => res.status(200).send("INSERÇÃO BEM-SUCEDIDA"))
-            .catch(erro => res.status(400).send(erro.message));
+            .then(() => res.status(200).json({ message: "LOGIN BEM-SUCEDIDO" }))
+            .catch(erro => res.status(400).json({ message: erro.message }));
         }
     }
 
@@ -27,8 +27,8 @@ class DoneController{
         return function(req, res){
             const doneCRUD = new DoneCRUD(db);
             doneCRUD.atualizaDone(req.body)
-            .then(() => res.status(200).send("ATUALIZAÇÃO BEM-SUCEDIDA"))
-            .catch(erro => res.status(400).send(erro.message));
+            .then(() => res.status(200).json({ message: "LOGIN BEM-SUCEDIDO" }))
+            .catch(erro => res.status(400).json({ message: erro.message }));
         }
     }
 
@@ -37,8 +37,8 @@ class DoneController{
             const id = req.params.id;
             const doneCRUD = new DoneCRUD(db);
             doneCRUD.deletaDone(id)
-            .then(() => res.status(200).send("REMOÇÃO BEM-SUCEDIDA"))
-            .catch(erro => res.status(400).send(erro.message));
+            .then(() => res.status(200).json({ message: "LOGIN BEM-SUCEDIDO" }))
+            .catch(erro => res.status(400).json({ message: erro.message }));
         }
     }
 
@@ -47,8 +47,8 @@ class DoneController{
             const id = req.params.id;
             const doneCRUD = new DoneCRUD(db);
             doneCRUD.trocaDoneToDo(id)
-            .then(() => res.status(200).send("TROCA BEM-SUCEDIDA"))
-            .catch(erro => res.status(400).send(erro.message));
+            .then(() => res.status(200).json({ message: "LOGIN BEM-SUCEDIDO" }))
+            .catch(erro => res.status(400).json({ message: erro.message }));
         }
     }
 }

@@ -86,9 +86,4 @@ module.exports = (aplicacao) =>{
 
     //DELETE - Remoção de Usuario
     aplicacao.delete("/usuario/:id", obj_UsuarioController.deletaUsuario());
-
-
-
-
-
 }

@@ -10,7 +10,7 @@ class UsuarioController{
             .then((resultados) =>{
                 res.status(200).send(resultados)
             })
-            .catch(erro => res.status(400).send(erro.message))
+            .catch(erro => res.status(400).json({ message: erro.message }));
         }
     }
 
@@ -21,7 +21,7 @@ class UsuarioController{
             .then((resultados) =>{
                 res.status(200).send(resultados)
             })
-            .catch(erro => res.status(400).send(erro.message))
+            .catch(erro => res.status(400).json({ message: erro.message }));
         }
     }
 
@@ -30,7 +30,7 @@ class UsuarioController{
             const usuarioCRUD = new UsuarioCRUD(db);
             usuarioCRUD.registraUsuario(req.body)
             .then(() => res.status(200).send("REGSITRO BEM-SUCEDIDO"))
-            .catch(erro => res.status(400).send(erro.message));
+            .catch(erro => res.status(400).json({ message: erro.message }));
         }
     }
 
@@ -38,8 +38,8 @@ class UsuarioController{
         return function(req, res){
             const usuarioCRUD = new UsuarioCRUD(db);
             usuarioCRUD.logaUsuario(req.body)
-            .then(() => res.status(200).send("LOGIN BEM-SUCEDIDO"))
-            .catch(erro => res.status(400).send(erro.message));
+            .then(() => res.status(200).json({ message: "LOGIN BEM-SUCEDIDO" }))
+            .catch(erro => res.status(400).json({ message: erro.message }));
         }
     }
 
@@ -47,8 +47,8 @@ class UsuarioController{
         return function(req, res){
             const usuarioCRUD = new UsuarioCRUD(db);
             usuarioCRUD.atualizaUsuario(req.body)
-            .then(() => res.status(200).send("ATUALIZAÇÃO BEM SUCEDIDA"))
-            .catch(erro => res.status(400).send(erro.message));
+            .then(() => res.status(200).json({ message: "ATUALIZAÇÃO BEM-SUCEDIDO" }))
+            .catch(erro => res.status(400).json({ message: erro.message }));
         }
     }
 
@@ -57,8 +57,8 @@ class UsuarioController{
             const id = req.params.id;
             const usuarioCRUD = new UsuarioCRUD(db);
             usuarioCRUD.deletaUsuario(id)
-            .then(() => res.status(200).send("REMOÇÃO BEM SUCEDIDA"))
-            .catch(erro => res.status(400).send(erro.message));
+            .then(() => res.status(200).json({ message: "REMOÇÃO BEM-SUCEDIDO" }))
+            .catch(erro => res.status(400).json({ message: erro.message }))
         }
     }
 }
