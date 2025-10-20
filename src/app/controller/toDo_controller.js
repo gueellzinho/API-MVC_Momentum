@@ -6,7 +6,7 @@ class ToDoController{
         return function(req, res){
             const id = req.params.id;
             const toDoCRUD = new ToDoCRUD(db);
-            toDoCRUD.buscaToDoPorIDUsuario(id)
+            toDoCRUD.buscaToDoPorIDUsuario(id, req.body)
             .then((resultados) =>{
                 res.status(200).send(resultados)
             })
