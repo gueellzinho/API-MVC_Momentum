@@ -5,7 +5,7 @@ class ToDoCRUD{
 
     buscaToDoPorIDUsuario(id, data){
         return new Promise((resolve, reject) =>{
-            var sqlQuery = `select * from Momentum.ToDo where ID_Usuario = '${id}' and Data_Validade = '${body.data}'`;
+            var sqlQuery = `select * from Momentum.ToDo where ID_Usuario = '${id}' and Data_Validade = '${data}'`;
             this._db.query(sqlQuery, (erro, recordset) =>{
                 if(erro){
                     console.log(erro);
